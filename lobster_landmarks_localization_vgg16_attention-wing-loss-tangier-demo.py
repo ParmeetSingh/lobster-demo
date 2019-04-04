@@ -330,7 +330,7 @@ sgd = keras.optimizers.SGD(lr=0.00001, decay=1e-6, momentum=0.9, nesterov=True)
 landmark_model.compile(loss="mean_squared_error", optimizer=sgd)
 print(landmark_model.summary())
 
-with open('landmark-weightsv20.hd5','rb') as f:
+with open('lobster-demo/landmark-weightsv20.hd5','rb') as f:
     model_weights = pickle.load(f)
     print("loaded model")
 landmark_model.set_weights(model_weights)

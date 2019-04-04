@@ -259,7 +259,7 @@ model = Model(inputs=cnn_base.input, outputs=x)
 sgd = keras.optimizers.SGD(lr=0.0000001, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss="mean_squared_error", optimizer="adam")
 
-with open('vgg16-landmark-box-weights1.hd5','rb') as f:
+with open('lobster-demo/vgg16-landmark-box-weights1.hd5','rb') as f:
     model_weights = pickle.load(f)
     model.set_weights(model_weights)
     print("loaded weights")
@@ -341,7 +341,7 @@ sum_final = Dense(labels)(sum_final)
 
 landmark_model = Model(inputs=cnn_base.input, outputs=sum_final)
 landmark_model.compile(loss="mean_squared_error", optimizer="adam")
-with open('landmark-weights-staged30.hd5','rb') as f:
+with open('lobster-demo/landmark-weights-staged30.hd5','rb') as f:
     model_weights = pickle.load(f)
     print("loaded model")
 landmark_model.set_weights(model_weights)
